@@ -1,27 +1,167 @@
-# React + TypeScript + Vite
+# @team-by-team/react-drawer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Installation
 
-Currently, two official plugins are available:
+```bash
+# npm
+npm i @team-by-team/react-drawer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# yarn
+yarn add @team-by-team/react-drawer
 
-## Expanding the ESLint configuration
+# pnpm
+pnpm add @team-by-team/react-drawer
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+# bun
+bun add @team-by-team/react-drawer
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Basic usage
+
+```tsx
+() => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleOpen = () => {
+    setIsOpen(() => true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(() => false);
+  };
+
+  return (
+    <>
+      <button onClick={handleOpen}>Open Drawer</button>
+      <Drawer isOpen={isOpen} onClose={handleClose}>
+        <h1>Drawer</h1>
+      </Drawer>
+    </>
+  );
+};
+```
+
+## Placement
+
+```tsx
+() => {
+  const [isOpen, setIsOpen] = useState(false);
+  const placement = 'top'; // 'top' | 'right' | 'bottom' | 'left'
+
+  const handleOpen = () => {
+    setIsOpen(() => true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(() => false);
+  };
+
+  return (
+    <>
+      <button onClick={handleOpen}>Open Drawer</button>
+      <Drawer isOpen={isOpen} onClose={handleClose}>
+        <h1>Drawer</h1>
+      </Drawer>
+    </>
+  );
+};
+```
+
+## Size
+
+```tsx
+() => {
+  const [isOpen, setIsOpen] = useState(false);
+  const size = 'large'; // 'default' | 'large'
+
+  const handleClose = () => {
+    setIsOpen(() => false);
+  };
+
+  return (
+    <Drawer isOpen={isOpen} onClose={handleClose} size={size}>
+      <h1>Drawer</h1>
+    </Drawer>
+  );
+};
+```
+
+## Customize transition duration
+
+```tsx
+() => {
+  const [isOpen, setIsOpen] = useState(false);
+  const transitionDurationMS = 500; // Customized duration
+
+  const handleClose = () => {
+    setIsOpen(() => false);
+  };
+
+  return (
+    <Drawer
+      isOpen={isOpen}
+      onClose={handleClose}
+      transitionDurationMS={transitionDurationMS}
+    >
+      <h1>Drawer</h1>
+    </Drawer>
+  );
+};
+```
+
+## Props
+
+`children`
+
+- Components to be rendered inside the Drawer (Header, content, close button, etc.)
+- Type : `React.ReactNode`
+
+`isOpen`
+
+- Indicates whether the Drawer is visible on the screen.
+- Type : `boolean`
+- default: `false`
+
+`onClose`
+
+- Function to be executed when the Drawer is closed.
+- Type : `() => void`
+
+`placement` (optional)
+
+- Specifies the position where the Drawer will appear.
+- Type : `'top' | 'right' | 'bottom' | 'left'`
+- Default : `'right'`
+
+`size` (optional)
+
+- Size of the Drawer.
+- Type : `'default' | 'large'`
+- Default : `'default'`
+
+`width` (optional)
+
+- Width of the Drawer.
+- Type : `React.CSSProperties['width']`
+
+`height` (optional)
+
+- Height of the Drawer.
+- Type : `React.CSSProperties['height']`
+
+`transitionDurationMS` (optional)
+
+- Duration of the animation when the Drawer opens and closes.
+- Type : `number`
+- Default : `300`
+
+`zIndex` (optional)
+
+- Value for the z-index property of the Drawer.
+- Type : `number`
+- Default : `1000`
+
+`css` (optional)
+
+- Style object containing additional CSS properties to be applied.
+- Type : `CSSInterpolation`
