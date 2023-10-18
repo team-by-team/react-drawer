@@ -117,8 +117,10 @@ export const DrawerRoot = styled.div<DrawerRootProps>`
   
 
   background-color: #fff;
-  box-shadow: -6px 0 16px 0 rgba(0, 0, 0, 0.08),
-    -3px 0 6px -4px rgba(0, 0, 0, 0.12), -9px 0 28px 8px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    -6px 0 16px 0 rgba(0, 0, 0, 0.08),
+    -3px 0 6px -4px rgba(0, 0, 0, 0.12),
+    -9px 0 28px 8px rgba(0, 0, 0, 0.05);
   z-index: ${({ zIndex }) => zIndex};
 
   ${({ css }) => css}
