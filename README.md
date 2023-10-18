@@ -34,7 +34,7 @@ bun add @team-by-team/react-drawer
     <>
       <button onClick={handleOpen}>Open Drawer</button>
       <Drawer isOpen={isOpen} onClose={handleClose}>
-        <h1>Drawer</h1>
+        <h2>Drawer</h2>
       </Drawer>
     </>
   );
@@ -60,7 +60,7 @@ bun add @team-by-team/react-drawer
     <>
       <button onClick={handleOpen}>Open Drawer</button>
       <Drawer isOpen={isOpen} onClose={handleClose}>
-        <h1>Drawer</h1>
+        <h2>Drawer</h2>
       </Drawer>
     </>
   );
@@ -80,7 +80,7 @@ bun add @team-by-team/react-drawer
 
   return (
     <Drawer isOpen={isOpen} onClose={handleClose} size={size}>
-      <h1>Drawer</h1>
+      <h2>Drawer</h2>
     </Drawer>
   );
 };
@@ -103,7 +103,7 @@ bun add @team-by-team/react-drawer
       onClose={handleClose}
       transitionDurationMS={transitionDurationMS}
     >
-      <h1>Drawer</h1>
+      <h2>Drawer</h2>
     </Drawer>
   );
 };
